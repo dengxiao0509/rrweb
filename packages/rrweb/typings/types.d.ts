@@ -285,6 +285,7 @@ declare type mouseInteractionParam = {
     id: number;
     x: number;
     y: number;
+    selector: string[];
 };
 export declare type mouseInteractionCallBack = (d: mouseInteractionParam) => void;
 export declare type scrollPosition = {

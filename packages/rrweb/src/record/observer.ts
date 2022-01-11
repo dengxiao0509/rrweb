@@ -247,6 +247,7 @@ function initMouseInteractionObserver(
   mirror: Mirror,
   blockClass: blockClass,
   sampling: SamplingStrategy,
+  setSelectorForNode: (n: EventTarget) => string[],
 ): listenerHandler {
   if (sampling.mouseInteraction === false) {
     return () => {};
@@ -269,10 +270,12 @@ function initMouseInteractionObserver(
         return;
       }
       const id = mirror.getId(target as INode);
+      
       const { clientX, clientY } = e;
       cb({
         type: MouseInteractions[eventKey],
         id,
+        selector: setSelectorForNode ? setSelectorForNode(target) : [],
         x: clientX,
         y: clientY,
       });
@@ -963,6 +966,7 @@ export function initObservers(
     o.mirror,
     o.blockClass,
     o.sampling,
+    o.setSelectorForNode,
   );
   const scrollHandler = initScrollObserver(
     o.scrollCb,

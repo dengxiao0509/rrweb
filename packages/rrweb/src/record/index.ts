@@ -61,6 +61,7 @@ function record<T = eventWithTime>(
     collectFonts = false,
     plugins,
     keepIframeSrcFn = () => false,
+    setSelectorForNode = () => [],
   } = options;
   // runtime checks for user options
   if (!emit) {
@@ -400,6 +401,7 @@ function record<T = eventWithTime>(
           mirror,
           iframeManager,
           shadowDomManager,
+          setSelectorForNode,
           plugins:
             plugins?.map((p) => ({
               observer: p.observer,

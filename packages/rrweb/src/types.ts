@@ -230,6 +230,7 @@ export type recordOptions<T> = {
   // departed, please use sampling options
   mousemoveWait?: number;
   keepIframeSrcFn?: KeepIframeSrcFn;
+  setSelectorForNode?: () => string[]
 };
 
 export type observerParam = {
@@ -262,6 +263,7 @@ export type observerParam = {
   mirror: Mirror;
   iframeManager: IframeManager;
   shadowDomManager: ShadowDomManager;
+  setSelectorForNode: (n: EventTarget) => string[];
   plugins: Array<{
     observer: Function;
     callback: Function;
@@ -386,6 +388,7 @@ type mouseInteractionParam = {
   id: number;
   x: number;
   y: number;
+  selector: string[];
 };
 
 export type mouseInteractionCallBack = (d: mouseInteractionParam) => void;
