@@ -272,10 +272,11 @@ function initMouseInteractionObserver(
       const id = mirror.getId(target as INode);
       
       const { clientX, clientY } = e;
+      // only fire selector calculate for mouse click
       cb({
         type: MouseInteractions[eventKey],
         id,
-        selector: setSelectorForNode ? setSelectorForNode(target) : [],
+        selector: typeof setSelectorForNode === 'function' && eventKey === 'Click' ? setSelectorForNode(target) : [],
         x: clientX,
         y: clientY,
       });

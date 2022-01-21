@@ -153,6 +153,7 @@ export declare type recordOptions<T> = {
     plugins?: RecordPlugin[];
     mousemoveWait?: number;
     keepIframeSrcFn?: KeepIframeSrcFn;
+    setSelectorForNode?: () => string[];
 };
 export declare type observerParam = {
     mutationCb: mutationCallBack;
@@ -184,6 +185,7 @@ export declare type observerParam = {
     mirror: Mirror;
     iframeManager: IframeManager;
     shadowDomManager: ShadowDomManager;
+    setSelectorForNode: (n: EventTarget) => string[];
     plugins: Array<{
         observer: Function;
         callback: Function;
